@@ -206,7 +206,35 @@ docker run -d --name my_container -p 1234:8080 docker-basics
 # force remove
 docker rm -f #id
 docker logs
-docker inspects #id
+docker inspect #id
 ```
 
 ### Docker volumes
+
+```sh
+docker volume create my_data
+docker volume ls
+docker volume inspect
+docker volume ls
+docker run -it --name voltesting -v my-data:/data alpine sh
+docker rm -f #id
+# same data from prev
+docker run -it --name new_voltesting -v my-data:/data alpine sh
+```
+
+### Docker networks
+
+[Docs](https://docs.docker.com/engine/network/)
+
+```sh
+docker network
+docker network ls
+docker network inspect bridge
+docker network create network-a
+docker network connect network-a container-1
+docker network connect network-a container-2
+docker network disconnect network-a bridge
+docker run -it container1 sh
+nslookup container-2
+docker network inspect
+```
