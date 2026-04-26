@@ -180,3 +180,33 @@ CMD [""]
 ```sh
 docker build --build-arg TARGETOS=linux --build-arg TARGET_ARCH=arm64 -t docker-bascis:arm64 .
 ```
+
+### Docker registry
+
+[Docker registry](https://www.docker.com/products/docker-hub/)
+
+```sh
+docker tag docker-basics mariolazzari/docker-basics:latest
+docker push
+```
+
+### Running contaieners
+
+```sh
+docker run -p 1234:8080 docker-basics
+# detached
+docker run -d -p 1234:8080 docker-basics
+docker stop #id
+docker ps -a
+docker start #id
+docker rm #id
+docker rename from_name to_name
+# named container
+docker run -d --name my_container -p 1234:8080 docker-basics
+# force remove
+docker rm -f #id
+docker logs
+docker inspects #id
+```
+
+### Docker volumes
